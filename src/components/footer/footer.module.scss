@@ -1,0 +1,137 @@
+.footer {
+  padding-top: 85px;
+
+  background-image: url('./guitar-footer.png');
+  background-repeat: no-repeat;
+}
+
+.wrapper {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  background-color: var(--dark-grey);
+
+  &::before {
+    position: absolute;
+    top: -16px;
+
+    width: 100%;
+    height: 6px;
+
+    content: '';
+
+    background-color: var(--dark-grey);
+  }
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 226px 145px 146px 223px 133px;
+  column-gap: 15px;
+
+  width: 1020px;
+  padding-top: 61px;
+  padding-right: 40px;
+  padding-bottom: 50px;
+  padding-left: 40px;
+
+  color: var(--secondary-color);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  letter-spacing: 1.2px;
+
+  font-size: 10px;
+}
+
+.item {
+  margin-bottom: 9px;
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+
+  padding-top: 52px;
+}
+
+.social {
+  margin-bottom: 10px;
+  &:not(:last-child) {
+    margin-right: 24px;
+  }
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 15px;
+  padding-top: 20px;
+
+  letter-spacing: 1.5px;
+
+  opacity: 0.7;
+
+  font-size: 14px;
+
+  font-weight: 400;
+}
+
+.text {
+  margin: 0;
+  margin-bottom: 15px;
+
+  letter-spacing: 0.3px;
+
+  font-size: 10px;
+}
+
+.contacts {
+  letter-spacing: 1.2px;
+}
+
+.phone {
+  position: relative;
+
+  padding-left: 14px;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    width: 8px;
+    height: 8px;
+
+    content: '';
+    transform: translateY(-50%);
+
+    background-image: url('./phone.svg');
+  }
+}
+
+.time {
+  position: relative;
+
+  padding-left: 14px;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    width: 10px;
+    height: 10px;
+
+    content: '';
+    transform: translateY(-50%);
+
+    background-image: url('./clock.svg');
+  }
+}

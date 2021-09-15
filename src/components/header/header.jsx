@@ -10,7 +10,7 @@ import guitar from './guitar.png';
 
 function Header() {
   return (
-    <header className={styles.header}>
+    <header>
       <div className={styles.wrapper}>
         <div className={styles.inner}>
           <Logo primary />

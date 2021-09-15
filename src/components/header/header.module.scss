@@ -1,11 +1,8 @@
-.header {
-}
-
 .wrapper {
   display: flex;
   justify-content: center;
 
-  background-color: rgba(30, 9, 6, 0.15);
+  background-color: var(--light-grey);
 }
 
 .inner {
@@ -64,7 +61,6 @@
   display: flex;
   justify-content: right;
 
-  height: 282px;
   margin-top: -38px;
 
   background-image: url('./strings.svg');
