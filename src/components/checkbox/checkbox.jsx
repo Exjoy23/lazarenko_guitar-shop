@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styles from './checkbox.module.scss';
 import classNames from 'classnames';
 
-function Checkbox({ children, className, ...attrs }) {
+function Checkbox({ children, ...attrs }) {
   return (
-    <label className={classNames(styles.label, className)}>
+    <label>
       <input
         className={classNames('visually-hidden', styles.input)}
         type="checkbox"

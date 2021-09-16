@@ -32,15 +32,13 @@ function Filter() {
           <legend className={styles.legend}>Тип гитар</legend>
           <ul className={styles.list}>
             <li className={styles.item}>
-              <Checkbox className={styles.checkbox}>
-                Акустические гитары
-              </Checkbox>
+              <Checkbox>Акустические гитары</Checkbox>
             </li>
             <li className={styles.item}>
-              <Checkbox className={styles.checkbox}>Электрогитары</Checkbox>
+              <Checkbox>Электрогитары</Checkbox>
             </li>
             <li className={styles.item}>
-              <Checkbox className={styles.checkbox}>Укулеле</Checkbox>
+              <Checkbox>Укулеле</Checkbox>
             </li>
           </ul>
         </fieldset>
@@ -48,16 +46,16 @@ function Filter() {
           <legend className={styles.legend}>Количество струн</legend>
           <ul className={styles.list}>
             <li className={styles.item}>
-              <Checkbox className={styles.checkbox}>4</Checkbox>
+              <Checkbox>4</Checkbox>
             </li>
             <li className={styles.item}>
-              <Checkbox className={styles.checkbox}>6</Checkbox>
+              <Checkbox>6</Checkbox>
             </li>
             <li className={styles.item}>
-              <Checkbox className={styles.checkbox}>7</Checkbox>
+              <Checkbox>7</Checkbox>
             </li>
             <li className={styles.item}>
-              <Checkbox className={styles.checkbox}>12</Checkbox>
+              <Checkbox>12</Checkbox>
             </li>
           </ul>
         </fieldset>

@@ -5,6 +5,7 @@ import { Footer } from '../../footer/footer';
 import { Title } from '../../title/title';
 import { Breadcrumbs } from '../../breadcrumbs/breadcrumbs';
 import { Filter } from '../../filter/filter';
+import { Sort } from '../../sort/sort';
 
 const BREADCRUMBS = ['Главная', 'Каталог'];
 
@@ -17,6 +18,7 @@ function MainPage() {
         <Breadcrumbs className={styles.breadcrumbs} items={BREADCRUMBS} />
         <section className={styles.section}>
           <Filter />
+          <Sort />
         </section>
       </main>
       <Footer />
