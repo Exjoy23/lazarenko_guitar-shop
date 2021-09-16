@@ -1,0 +1,58 @@
+.text {
+  position: relative;
+
+  padding-left: 40px;
+
+  user-select: none;
+
+  letter-spacing: 0.5px;
+
+  font-size: 16px;
+  line-height: 26px;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    width: 24px;
+    height: 24px;
+
+    content: '';
+    transform: translateY(-50%);
+
+    border: 0.7px solid #9f9e9e;
+    border-radius: 2px;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    &::before {
+      border-color: #585757;
+    }
+  }
+
+  &:active {
+    &::before {
+      border-color: var(--grey);
+    }
+  }
+}
+
+.input:checked + .text::before {
+  background-image: url('./checked.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.input:disabled + .text {
+  cursor: default;
+
+  color: #ddd;
+
+  &::before {
+    border-color: #ddd;
+    background-color: #f7f3f3;
+  }
+}

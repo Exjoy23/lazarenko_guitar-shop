@@ -1,0 +1,99 @@
+.title {
+  margin: 0;
+  margin-bottom: 60px;
+
+  letter-spacing: 0.7px;
+
+  font-size: 18px;
+}
+
+.fieldset {
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 0;
+  padding-bottom: 30px;
+
+  border: none;
+}
+
+.legend {
+  position: relative;
+
+  margin-bottom: 24px;
+  padding: 0;
+
+  letter-spacing: 0.5px;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  &::before {
+    position: absolute;
+    top: -31px;
+
+    width: 208px;
+    height: 0.7px;
+
+    content: '';
+
+    background-color: #dddada;
+  }
+}
+
+.label {
+  display: flex;
+
+  margin-bottom: 30px;
+}
+
+.input {
+  width: 84px;
+  height: 28px;
+
+  text-align: center;
+
+  color: var(--primary-color);
+
+  border: 0.7px solid #9f9e9e;
+
+  border-radius: 2px;
+}
+
+.inner {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+
+  &::after {
+    position: absolute;
+    top: 13px;
+    left: 97px;
+
+    width: 14px;
+    height: 1px;
+
+    content: '';
+
+    background-color: #585757;
+  }
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.item {
+  &:not(:last-child) {
+    margin-bottom: 9.5px;
+  }
+}
+
+.checkbox {
+  &:not(:last-child) {
+    margin-bottom: 9.5px;
+  }
+}

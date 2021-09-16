@@ -1,0 +1,39 @@
+.list {
+  display: flex;
+
+  width: 1020px;
+
+  padding-right: 40px;
+  padding-left: 40px;
+
+  list-style: none;
+}
+
+.item {
+  letter-spacing: 0.6px;
+
+  color: #474747;
+
+  font-size: 16px;
+
+  &:not(:last-child) {
+    position: relative;
+
+    margin-right: 36px;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: -24px;
+
+      width: 12px;
+      height: 7px;
+
+      content: '';
+      transform: translateY(-50%);
+
+      background-image: url('./arrow.svg');
+      background-repeat: no-repeat;
+    }
+  }
+}
