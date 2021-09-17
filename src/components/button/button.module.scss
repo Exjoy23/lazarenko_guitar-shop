@@ -1,0 +1,64 @@
+.button {
+  padding: 4.5px 9px;
+
+  transition: 0.2s linear;
+
+  letter-spacing: 0.4px;
+
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 2px;
+  background-color: var(--grey);
+
+  font-family: 'droid-sans', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  &:hover {
+    cursor: pointer;
+
+    background-color: #585757;
+  }
+
+  &:active {
+    background-color: #9f9e9e;
+  }
+
+  &_primary {
+    padding-left: 28px;
+
+    letter-spacing: 1px;
+
+    background-color: var(--orange);
+
+    &:hover {
+      cursor: pointer;
+
+      background-color: var(--light-orange);
+    }
+
+    &:active {
+      background-color: var(--dark-orange);
+    }
+  }
+
+  &_cart {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 11px;
+
+      width: 12px;
+      height: 12px;
+
+      content: '';
+      transform: translateY(-50%);
+
+      background-image: url('./shopping-cart.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}

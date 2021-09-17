@@ -18,7 +18,6 @@ function Checkbox({ children, ...attrs }) {
 
 Checkbox.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
 };
 
 export { Checkbox };

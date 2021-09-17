@@ -4,7 +4,7 @@ import { Checkbox } from '../checkbox/checkbox';
 
 function Filter() {
   return (
-    <section>
+    <section className={styles.wrapper}>
       <h2 className={styles.title}>Фильтр</h2>
       <form>
         <fieldset className={styles.fieldset}>

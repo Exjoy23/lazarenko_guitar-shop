@@ -6,6 +6,8 @@ import { Title } from '../../title/title';
 import { Breadcrumbs } from '../../breadcrumbs/breadcrumbs';
 import { Filter } from '../../filter/filter';
 import { Sort } from '../../sort/sort';
+import { CardList } from '../../card-list/card-list';
+import { Pagination } from '../../pagination/pagination';
 
 const BREADCRUMBS = ['Главная', 'Каталог'];
 
@@ -19,6 +21,8 @@ function MainPage() {
         <section className={styles.section}>
           <Filter />
           <Sort />
+          <CardList />
+          <Pagination />
         </section>
       </main>
       <Footer />

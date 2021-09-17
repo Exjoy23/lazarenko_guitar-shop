@@ -1,0 +1,45 @@
+.wrapper {
+  width: 220px;
+  height: 304px;
+  padding-top: 11px;
+  padding-right: 14px;
+  padding-bottom: 20px;
+  padding-left: 14px;
+
+  border: 1px solid #dddada;
+}
+
+.image {
+  display: block;
+
+  margin: 0 auto;
+}
+
+.rating {
+}
+
+.reviews {
+  display: inline-block;
+
+  padding-left: 2px;
+
+  vertical-align: middle;
+
+  color: #9f9e9e;
+
+  font-size: 10px;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+
+  letter-spacing: 0.7px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}

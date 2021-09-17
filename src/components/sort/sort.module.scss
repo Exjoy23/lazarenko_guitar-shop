@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: min-content max-content 1fr;
   column-gap: 18px;
+  grid-area: sort;
 }
 
 .text {
