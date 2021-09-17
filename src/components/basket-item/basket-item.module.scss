@@ -31,8 +31,14 @@
   background-repeat: no-repeat;
   background-position: center;
 
-  :hover {
+  &:hover {
     cursor: pointer;
+
+    opacity: 0.5;
+  }
+
+  &:active {
+    opacity: 0.3;
   }
 }
 
@@ -63,7 +69,6 @@
   font-size: 20px;
 
   &_all {
-    margin-right: -4px;
     padding: 0;
 
     font-weight: 700;
@@ -82,6 +87,14 @@
   padding-top: 24px;
 }
 
+.decrement {
+  background-image: url('./minus.svg');
+}
+
+.increment {
+  background-image: url('./plus.svg');
+}
+
 .decrement,
 .increment {
   width: 28px;
@@ -93,14 +106,16 @@
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
-}
 
-.decrement {
-  background-image: url('./minus.svg');
-}
+  &:hover {
+    cursor: pointer;
 
-.increment {
-  background-image: url('./plus.svg');
+    opacity: 0.5;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 }
 
 .count {

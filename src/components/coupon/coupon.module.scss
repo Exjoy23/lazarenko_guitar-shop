@@ -1,0 +1,47 @@
+.wrapper {
+  grid-area: coupon;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 8px;
+
+  letter-spacing: 1px;
+
+  font-size: 16px;
+}
+
+.text {
+  margin: 0;
+  margin-bottom: 19px;
+
+  letter-spacing: 0.9px;
+
+  font-size: 12px;
+}
+
+.label {
+  margin-right: 33px;
+}
+
+.input {
+  width: 170px;
+  height: 36px;
+
+  text-align: center;
+  letter-spacing: 1px;
+
+  border: 2px solid #dddada;
+  border-radius: 2px;
+
+  font-family: 'droid-sans', Arial, sans-serif;
+  font-size: 16px;
+}
+
+.button {
+  padding: 9px 19px;
+
+  letter-spacing: 1.2px;
+
+  font-size: 16px;
+}

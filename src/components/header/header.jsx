@@ -18,34 +18,63 @@ function Header() {
           <nav className={styles.nav}>
             <ul className={styles.list}>
               <li className={styles.item}>
-                <Link to={AppRoute.MAIN}>Каталог</Link>
+                <Link className={styles.link} to={AppRoute.MAIN}>
+                  Каталог
+                </Link>
               </li>
               <li className={styles.item}>
-                <Link to="/">Где купить?</Link>
+                <Link className={styles.link} to="/">
+                  Где купить?
+                </Link>
               </li>
               <li className={styles.item}>
-                <Link to="/">О компании</Link>
+                <Link className={styles.link} to="/">
+                  О компании
+                </Link>
               </li>
               <li className={styles.item}>
-                <Link to="/">Сервис-центры</Link>
+                <Link className={styles.link} to="/">
+                  Сервис-центры
+                </Link>
               </li>
             </ul>
             <ul className={classNames(styles.list, styles.items)}>
               <li>
-                <Link className={styles.link} to="/">
-                  <img src={location} alt="Наши магазины" />
+                <Link
+                  className={classNames(styles.link, styles.link_icon)}
+                  to="/"
+                >
+                  <img
+                    src={location}
+                    width="15"
+                    height="22"
+                    alt="Наши магазины"
+                  />
                 </Link>
               </li>
               <li>
-                <Link className={styles.link} to="/">
-                  <img src={search} alt="Поиск товаров" />
+                <Link
+                  className={classNames(styles.link, styles.link_icon)}
+                  to="/"
+                >
+                  <img
+                    src={search}
+                    width="15"
+                    height="20"
+                    alt="Поиск товаров"
+                  />
                 </Link>
               </li>
               <li>
-                <Link className={styles.link} to={AppRoute.CART}>
+                <Link
+                  className={classNames(styles.link, styles.link_icon)}
+                  to={AppRoute.CART}
+                >
                   <img
                     className={styles.cart}
                     src={cart}
+                    width="20"
+                    height="20"
                     alt="Корзина товаров"
                   />
                 </Link>
@@ -55,7 +84,12 @@ function Header() {
         </div>
       </div>
       <div className={styles.guitar}>
-        <img src={guitar} alt="Шестиструнная электрогитара" />
+        <img
+          src={guitar}
+          width="825"
+          height="298"
+          alt="Шестиструнная электрогитара"
+        />
       </div>
     </header>
   );

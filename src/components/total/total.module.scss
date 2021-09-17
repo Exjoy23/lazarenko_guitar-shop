@@ -1,0 +1,22 @@
+.wrapper {
+  grid-area: total;
+  justify-self: right;
+}
+
+.text {
+  margin: 0;
+  margin-bottom: 35px;
+
+  text-align: right;
+
+  letter-spacing: 1.3px;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.button {
+  padding: 9px 36px;
+
+  font-size: 16px;
+}

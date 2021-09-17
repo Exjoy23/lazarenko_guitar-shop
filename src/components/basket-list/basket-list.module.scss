@@ -1,21 +1,19 @@
 .list {
   position: relative;
+  grid-area: basket;
 
   display: grid;
   row-gap: 30px;
 
-  width: 1020px;
   margin: 0;
   padding: 0;
-  padding-right: 40px;
-  padding-left: 40px;
 
   list-style: none;
 
   &::before {
     position: absolute;
     top: -16px;
-    left: 40px;
+    left: 0;
 
     width: 940px;
     height: 0.7px;

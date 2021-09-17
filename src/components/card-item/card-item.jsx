@@ -6,8 +6,14 @@ import { Button } from '../button/button';
 
 function CardItem() {
   return (
-    <div className={styles.wrapper}>
-      <img className={styles.image} src={guitar} alt="басс-гитара" />
+    <li className={styles.wrapper}>
+      <img
+        className={styles.image}
+        src={guitar}
+        width="80"
+        height="202"
+        alt="басс-гитара"
+      />
       <StarRatings
         rating={4.5}
         starRatedColor="#FFD168"
@@ -26,7 +32,7 @@ function CardItem() {
           Купить
         </Button>
       </div>
-    </div>
+    </li>
   );
 }
 

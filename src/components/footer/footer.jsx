@@ -16,18 +16,18 @@ function Footer() {
             <Logo />
             <ul className={classNames(styles.list, styles.socials)}>
               <li className={styles.social}>
-                <a href="https://ru-ru.facebook.com/">
-                  <img src={facebook} alt="facebook" />
+                <a className={styles.link} href="https://ru-ru.facebook.com/">
+                  <img src={facebook} width="24" height="24" alt="facebook" />
                 </a>
               </li>
               <li className={styles.social}>
-                <a href="https://www.instagram.com/">
-                  <img src={instagram} alt="instagram" />
+                <a className={styles.link} href="https://www.instagram.com/">
+                  <img src={instagram} width="24" height="24" alt="instagram" />
                 </a>
               </li>
               <li className={styles.social}>
-                <a href="https://twitter.com/">
-                  <img src={twitter} alt="twitter" />
+                <a className={styles.link} href="https://twitter.com/">
+                  <img src={twitter} width="24" height="24" alt="twitter" />
                 </a>
               </li>
             </ul>
@@ -46,19 +46,29 @@ function Footer() {
             <h2 className={styles.title}>Каталог</h2>
             <ul className={styles.list}>
               <li className={styles.item}>
-                <Link to="/">Акустические гитары</Link>
+                <Link className={styles.link} to="/">
+                  Акустические гитары
+                </Link>
               </li>
               <li className={styles.item}>
-                <Link to="/">Классические гитары</Link>
+                <Link className={styles.link} to="/">
+                  Классические гитары
+                </Link>
               </li>
               <li className={styles.item}>
-                <Link to="/">Электрогитары</Link>
+                <Link className={styles.link} to="/">
+                  Электрогитары
+                </Link>
               </li>
               <li className={styles.item}>
-                <Link to="/">Бас-гитары</Link>
+                <Link className={styles.link} to="/">
+                  Бас-гитары
+                </Link>
               </li>
               <li className={styles.item}>
-                <Link to="/">Укулеле</Link>
+                <Link className={styles.link} to="/">
+                  Укулеле
+                </Link>
               </li>
             </ul>
           </div>
@@ -66,19 +76,29 @@ function Footer() {
             <h2 className={styles.title}>Информация</h2>
             <ul className={styles.list}>
               <li className={styles.item}>
-                <Link to="/">Где купить?</Link>
+                <Link className={styles.link} to="/">
+                  Где купить?
+                </Link>
               </li>
               <li className={styles.item}>
-                <Link to="/">Блог</Link>
+                <Link className={styles.link} to="/">
+                  Блог
+                </Link>
               </li>
               <li className={styles.item}>
-                <Link to="/">Вопрос - ответ</Link>
+                <Link className={styles.link} to="/">
+                  Вопрос - ответ
+                </Link>
               </li>
               <li className={styles.item}>
-                <Link to="/">Возврат</Link>
+                <Link className={styles.link} to="/">
+                  Возврат
+                </Link>
               </li>
               <li className={styles.item}>
-                <Link to="/">Сервис-центры</Link>
+                <Link className={styles.link} to="/">
+                  Сервис-центры
+                </Link>
               </li>
             </ul>
           </div>

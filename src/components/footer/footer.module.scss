@@ -55,6 +55,16 @@
   margin-bottom: 9px;
 }
 
+.link {
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
 .socials {
   display: flex;
   flex-wrap: wrap;
