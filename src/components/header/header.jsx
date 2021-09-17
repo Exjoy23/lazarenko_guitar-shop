@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './header.module.scss';
+import { AppRoute } from '../../const';
 import { Logo } from '../logo/logo';
 import { Link } from 'react-router-dom';
 import location from './location.svg';
@@ -17,7 +18,7 @@ function Header() {
           <nav className={styles.nav}>
             <ul className={styles.list}>
               <li className={styles.item}>
-                <Link to="/">Каталог</Link>
+                <Link to={AppRoute.MAIN}>Каталог</Link>
               </li>
               <li className={styles.item}>
                 <Link to="/">Где купить?</Link>
@@ -41,7 +42,7 @@ function Header() {
                 </Link>
               </li>
               <li>
-                <Link className={styles.link} to="/">
+                <Link className={styles.link} to={AppRoute.CART}>
                   <img
                     className={styles.cart}
                     src={cart}

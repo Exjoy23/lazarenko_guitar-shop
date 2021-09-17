@@ -8,22 +8,28 @@ function Sort() {
       <p className={styles.text}>Сортировать:</p>
       <ul className={styles.list}>
         <li>
-          <button className={styles.button}>по цене</button>
+          <button className={styles.button} type="button">
+            по цене
+          </button>
         </li>
         <li>
-          <button className={styles.button}>по популярности</button>
+          <button className={styles.button} type="button">
+            по популярности
+          </button>
         </li>
       </ul>
       <ul className={classNames(styles.list, styles.arrows)}>
         <li>
           <button
             className={classNames(styles.button, styles.button_ascending)}
+            type="button"
             aria-label="по возрастанию "
           />
         </li>
         <li>
           <button
             className={classNames(styles.button, styles.button_descending)}
+            type="button"
             aria-label="по убыванию"
           />
         </li>

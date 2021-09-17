@@ -12,6 +12,7 @@ function Button({ children, primary, cart, className, ...attrs }) {
         primary && styles.button_primary,
         cart && styles.button_cart,
       )}
+      type="button"
       {...attrs}
     >
       {children}

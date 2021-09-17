@@ -8,25 +8,23 @@ function CardItem() {
   return (
     <div className={styles.wrapper}>
       <img className={styles.image} src={guitar} alt="басс-гитара" />
-      <div className={styles.rating}>
-        <StarRatings
-          rating={4.5}
-          starRatedColor="#FFD168"
-          numberOfStars={5}
-          starDimension="12px"
-          starSpacing="1px"
-        />
-        <span className={styles.reviews}>15</span>
-        <div className={styles.inner}>
-          <span>Честер Bass</span>
-          <span>17 500 ₽</span>
-        </div>
-        <div className={styles.buttons}>
-          <Button>Подробнее</Button>
-          <Button primary cart>
-            Купить
-          </Button>
-        </div>
+      <StarRatings
+        rating={4.5}
+        starRatedColor="#FFD168"
+        numberOfStars={5}
+        starDimension="12px"
+        starSpacing="1px"
+      />
+      <span className={styles.reviews}>15</span>
+      <div className={styles.inner}>
+        <h3 className={styles.title}>Честер Bass</h3>
+        <span>17 500 ₽</span>
+      </div>
+      <div className={styles.buttons}>
+        <Button>Подробнее</Button>
+        <Button primary cart>
+          Купить
+        </Button>
       </div>
     </div>
   );
