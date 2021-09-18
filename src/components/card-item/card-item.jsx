@@ -1,30 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 import styles from './card-item.module.scss';
-import guitar from './bass-guitar.png';
 import { Button } from '../button/button';
 
-function CardItem() {
+const divideNumberByPieces = (number) =>
+  number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+
+function CardItem({ name, preview, price, rating, reviews }) {
   return (
     <li className={styles.wrapper}>
       <img
         className={styles.image}
-        src={guitar}
-        width="80"
-        height="202"
-        alt="басс-гитара"
+        src={preview}
+        width="68"
+        height="190"
+        alt={name}
       />
       <StarRatings
-        rating={4.5}
+        rating={rating}
         starRatedColor="#FFD168"
         numberOfStars={5}
         starDimension="12px"
         starSpacing="1px"
       />
-      <span className={styles.reviews}>15</span>
+      <span className={styles.reviews}>{reviews}</span>
       <div className={styles.inner}>
-        <h3 className={styles.title}>Честер Bass</h3>
-        <span>17 500 ₽</span>
+        <h3 className={styles.title}>{name}</h3>
+        <span>{divideNumberByPieces(price)} ₽</span>
       </div>
       <div className={styles.buttons}>
         <Button>Подробнее</Button>
@@ -35,5 +38,13 @@ function CardItem() {
     </li>
   );
 }
+
+CardItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  preview: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
+  reviews: PropTypes.number.isRequired,
+};
 
 export { CardItem };
