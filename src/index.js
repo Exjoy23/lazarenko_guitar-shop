@@ -4,10 +4,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import dataSlice from './store/slices/data-slice';
+import uiSlice from './store/slices/ui-slice';
 import App from './components/app/app';
 
 const store = configureStore({
-  reducer: { dataSlice },
+  reducer: { dataSlice, uiSlice },
 });
 
 ReactDOM.render(

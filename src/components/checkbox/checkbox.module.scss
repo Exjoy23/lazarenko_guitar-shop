@@ -56,3 +56,7 @@
     background-color: #f7f3f3;
   }
 }
+
+.input:focus + .text::before {
+  border-color: #585757;
+}
