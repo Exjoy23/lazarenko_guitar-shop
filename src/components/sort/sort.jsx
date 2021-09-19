@@ -3,15 +3,19 @@ import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   changeSortingOrder,
-  changeSortingType
-} from '../../store/slices/ui-slice';
+  changeSortingType,
+} from '../../store/ui-slice/ui-slice';
+import {
+  getSortingOrder,
+  getSortingType,
+} from '../../store/ui-slice/selectors';
 import styles from './sort.module.scss';
 import { SortingOrders, SortingTypes } from '../../const';
 
 function Sort() {
   const dispatch = useDispatch();
-  const sortingType = useSelector(({ uiSlice }) => uiSlice.sortingType);
-  const sortingOrder = useSelector(({ uiSlice }) => uiSlice.sortingOrder);
+  const sortingType = useSelector(getSortingType);
+  const sortingOrder = useSelector(getSortingOrder);
 
   return (
     <section className={styles.wrapper}>
@@ -19,10 +23,7 @@ function Sort() {
       <ul className={styles.list}>
         <li>
           <button
-            className={classNames(
-              styles.button,
-              sortingType === SortingTypes.PRICE && styles.button_active,
-            )}
+            className={styles.button}
             onClick={() => {
               if (!sortingOrder) {
                 dispatch(changeSortingOrder(SortingOrders.ASCENDING));
@@ -31,16 +32,14 @@ function Sort() {
               dispatch(changeSortingType(SortingTypes.PRICE));
             }}
             type="button"
+            disabled={sortingType === SortingTypes.PRICE}
           >
             по цене
           </button>
         </li>
         <li>
           <button
-            className={classNames(
-              styles.button,
-              sortingType === SortingTypes.POPULAR && styles.button_active,
-            )}
+            className={styles.button}
             onClick={() => {
               if (!sortingOrder) {
                 dispatch(changeSortingOrder(SortingOrders.ASCENDING));
@@ -49,6 +48,7 @@ function Sort() {
               dispatch(changeSortingType(SortingTypes.POPULAR));
             }}
             type="button"
+            disabled={sortingType === SortingTypes.POPULAR}
           >
             по популярности
           </button>
@@ -57,11 +57,7 @@ function Sort() {
       <ul className={classNames(styles.list, styles.arrows)}>
         <li>
           <button
-            className={classNames(
-              styles.button,
-              styles.button_ascending,
-              sortingOrder === SortingOrders.ASCENDING && styles.button_active,
-            )}
+            className={classNames(styles.button, styles.button_ascending)}
             onClick={() => {
               if (!sortingType) {
                 dispatch(changeSortingType(SortingTypes.PRICE));
@@ -70,16 +66,13 @@ function Sort() {
               dispatch(changeSortingOrder(SortingOrders.ASCENDING));
             }}
             type="button"
-            aria-label="по возрастанию "
+            aria-label="по возрастанию"
+            disabled={sortingOrder === SortingOrders.ASCENDING}
           />
         </li>
         <li>
           <button
-            className={classNames(
-              styles.button,
-              styles.button_descending,
-              sortingOrder === SortingOrders.DESCENDING && styles.button_active,
-            )}
+            className={classNames(styles.button, styles.button_descending)}
             onClick={() => {
               if (!sortingType) {
                 dispatch(changeSortingType(SortingTypes.PRICE));
@@ -89,6 +82,7 @@ function Sort() {
             }}
             type="button"
             aria-label="по убыванию"
+            disabled={sortingOrder === SortingOrders.DESCENDING}
           />
         </li>
       </ul>

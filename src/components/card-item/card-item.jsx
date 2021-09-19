@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 import styles from './card-item.module.scss';
 import { Button } from '../button/button';
-
-const divideNumberByPieces = (number) =>
-  number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+import { divideNumberByPieces } from '../../utils';
 
 function CardItem({ name, preview, price, rating, reviews }) {
   return (

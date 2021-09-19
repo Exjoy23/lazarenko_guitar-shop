@@ -10,7 +10,23 @@ export const SortingTypes = {
   PRICE: 'price',
   POPULAR: 'reviews',
 };
+
 export const SortingOrders = {
   ASCENDING: 'ascending',
   DESCENDING: 'descending',
+};
+
+export const NameSpace = {
+  DATA: 'dataSlice',
+  UI: 'uiSlice',
+};
+
+export const GUITAR_TYPES = ['ACOUSTIC', 'ELECTRIC', 'UKULELE'];
+
+export const GUITAR_STRINGS = [4, 6, 7, 12];
+
+export const GuitarsType = {
+  ACOUSTIC: 'Акустические гитары',
+  ELECTRIC: 'Электрогитары',
+  UKULELE: 'Укулеле',
 };

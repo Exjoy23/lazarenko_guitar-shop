@@ -53,14 +53,18 @@
 .input {
   width: 84px;
   height: 28px;
+  padding-left: 15px;
 
   text-align: center;
+  letter-spacing: 1.1px;
 
   color: var(--primary-color);
 
   border: 0.7px solid #9f9e9e;
 
   border-radius: 2px;
+
+  font-family: 'droid-sans', Arial, sans-serif;
 }
 
 .inner {

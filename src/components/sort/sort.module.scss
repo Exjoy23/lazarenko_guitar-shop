@@ -48,8 +48,11 @@
     cursor: pointer;
   }
 
-  &_active {
+  &:disabled {
+    cursor: default;
+
     opacity: 1;
+    color: var(--primary-color);
   }
 
   &_ascending {

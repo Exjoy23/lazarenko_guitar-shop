@@ -1,0 +1,15 @@
+.section {
+  display: grid;
+
+  width: 1020px;
+  padding-right: 40px;
+  padding-left: 40px;
+  grid-template-columns: 208px auto;
+  grid-template-rows: 20px auto auto;
+  grid-template-areas:
+    'filter sort'
+    'filter cards'
+    '. pagination';
+  column-gap: 32px;
+  row-gap: 30px;
+}

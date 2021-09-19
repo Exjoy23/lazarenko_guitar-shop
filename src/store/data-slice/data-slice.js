@@ -16,7 +16,7 @@ export const loadGuitars = createAsyncThunk('data/loadGuitars', async () => {
 });
 
 const dataSlice = createSlice({
-  name: 'data',
+  name: 'dataSlice',
   initialState,
   extraReducers: {
     [loadGuitars.fulfilled]: (state, { payload }) => {
