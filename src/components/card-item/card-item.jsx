@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 import styles from './card-item.module.scss';
-import { Button } from '../button/button';
+import { SCROLL_HIDE_STYLE } from '../../const';
 import { divideNumberByPieces } from '../../utils';
+import { Button } from '../button/button';
+import { Modal } from '../modal/modal';
+import { Popup } from '../popup/popup';
 
-function CardItem({ name, preview, price, rating, reviews }) {
+function CardItem({
+  id,
+  type,
+  strings,
+  name,
+  preview,
+  cartPreview,
+  price,
+  rating,
+  reviews,
+}) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   return (
     <li className={styles.wrapper}>
       <img
@@ -28,18 +44,41 @@ function CardItem({ name, preview, price, rating, reviews }) {
         <span>{divideNumberByPieces(price)} ₽</span>
       </div>
       <div className={styles.buttons}>
-        <Button>Подробнее</Button>
-        <Button primary cart>
+        <Button to="/">Подробнее</Button>
+        <Button
+          onClick={() => {
+            setIsModalOpen(true);
+            document.body.style = SCROLL_HIDE_STYLE;
+          }}
+          primary
+          cart
+        >
           Купить
         </Button>
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={setIsModalOpen}
+        onSetPopupOpen={setIsPopupOpen}
+        name={name}
+        id={id}
+        type={type}
+        strings={strings}
+        price={price}
+        cartPreview={cartPreview}
+      />
+      <Popup isOpen={isPopupOpen} onClose={setIsPopupOpen} />
     </li>
   );
 }
 
 CardItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  strings: PropTypes.number.isRequired,
+  type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   preview: PropTypes.string.isRequired,
+  cartPreview: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
   reviews: PropTypes.number.isRequired,

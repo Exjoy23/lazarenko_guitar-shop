@@ -4,6 +4,7 @@ import { DATABASE_URL } from '../../const';
 
 const initialState = {
   guitars: [],
+  cartGuitars: [],
   isLoading: false,
 };
 
@@ -19,6 +20,11 @@ export const loadGuitars = createAsyncThunk('data/loadGuitars', async () => {
 const dataSlice = createSlice({
   name: 'dataSlice',
   initialState,
+  reducers: {
+    addToCartGuitar(state, { payload }) {
+      state.cartGuitars.push(payload);
+    },
+  },
   extraReducers: {
     [loadGuitars.pending]: (state) => {
       state.isLoading = true;
@@ -33,5 +39,5 @@ const dataSlice = createSlice({
   },
 });
 
-export const { addGuitars } = dataSlice.actions;
+export const { addToCartGuitar } = dataSlice.actions;
 export default dataSlice.reducer;

@@ -33,3 +33,6 @@ export const GuitarsType = {
 
 export const MAX_GUITARS_ON_PAGE = 9;
 export const DEFAULT_PAGE = 1;
+
+export const SCROLL_HIDE_STYLE = 'overflow: hidden';
+export const SCROLL_VISIBLE_STYLE = 'overflow: visible';

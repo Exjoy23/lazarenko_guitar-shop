@@ -40,6 +40,25 @@
     }
   }
 
+  &_secondary {
+    letter-spacing: 1px;
+
+    color: #585757;
+    border: 1px solid #585757;
+    background-color: var(--secondary-color);
+
+    &:hover {
+      cursor: pointer;
+
+      opacity: 0.7;
+      background-color: var(--secondary-color);
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
   &_cart {
     position: relative;
 
