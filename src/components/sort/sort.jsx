@@ -3,11 +3,11 @@ import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   changeSortingOrder,
-  changeSortingType,
+  changeSortingType
 } from '../../store/ui-slice/ui-slice';
 import {
   getSortingOrder,
-  getSortingType,
+  getSortingType
 } from '../../store/ui-slice/selectors';
 import styles from './sort.module.scss';
 import { SortingOrders, SortingTypes } from '../../const';

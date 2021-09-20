@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styles from './catalog.module.scss';
 import { Filter } from '../../filter/filter';
@@ -14,7 +14,13 @@ import {
   getSortingOrder,
   getSortingType,
 } from '../../../store/ui-slice/selectors';
-import { filterProducts, sortProducts } from '../../../utils';
+import {
+  DEFAULT_PAGE,
+  filterProducts,
+  MAX_GUITARS_ON_PAGE,
+  paginateProducts,
+  sortProducts,
+} from '../../../utils';
 
 function Catalog() {
   const guitars = useSelector(getGuitars);
@@ -25,6 +31,19 @@ function Catalog() {
   const filteringTypes = useSelector(getFilteringTypes);
   const filteringStrings = useSelector(getFilteringStrings);
 
+  const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE);
+
+  useEffect(() => {
+    setCurrentPage(DEFAULT_PAGE);
+  }, [
+    sortingType,
+    sortingOrder,
+    filteringPriceFrom,
+    filteringPriceTo,
+    filteringTypes,
+    filteringStrings,
+  ]);
+
   const filteredGuitars = filterProducts(
     guitars,
     filteringPriceFrom,
@@ -32,11 +51,14 @@ function Catalog() {
     filteringTypes,
     filteringStrings,
   );
+
   const sortedGuitars = sortProducts(
     filteredGuitars,
     sortingType,
     sortingOrder,
   );
+
+  const paginatedGuitars = paginateProducts(sortedGuitars, currentPage);
 
   return (
     <section className={styles.section}>
@@ -47,8 +69,12 @@ function Catalog() {
         guitarStrings={filteringStrings}
       />
       <Sort />
-      <CardList guitars={sortedGuitars} />
-      <Pagination />
+      <CardList guitars={paginatedGuitars} />
+      <Pagination
+        totalPages={Math.ceil(sortedGuitars.length / MAX_GUITARS_ON_PAGE)}
+        currentPage={currentPage}
+        onSetCurrentPage={setCurrentPage}
+      />
     </section>
   );
 }

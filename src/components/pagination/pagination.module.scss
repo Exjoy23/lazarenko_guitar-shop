@@ -1,10 +1,18 @@
-.wrapper {
+.list {
   display: flex;
-  justify-content: space-between;
 
-  width: 220px;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
   grid-area: pagination;
   justify-self: right;
+}
+
+.item {
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
 }
 
 .button {

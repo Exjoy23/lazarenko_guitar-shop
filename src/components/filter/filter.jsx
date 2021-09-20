@@ -98,14 +98,22 @@ function Filter({ guitars, guitarTypes, guitarStrings }) {
                 className={styles.input}
                 onChange={(evt) => setPriceFrom(evt.target.value)}
                 onBlur={(evt) => {
-                  const value = evt.target.value;
+                  const value = +evt.target.value;
+
+                  if (!value) {
+                    return setPriceFrom('');
+                  }
+
+                  if (priceTo && value >= +priceTo) {
+                    return setPriceFrom(priceTo);
+                  }
 
                   if (value <= minPrice) {
                     return setPriceFrom(minPrice);
                   }
 
-                  if (priceTo && value >= priceTo) {
-                    return setPriceFrom(priceTo);
+                  if (value >= maxPrice) {
+                    return setPriceFrom(maxPrice);
                   }
 
                   setPriceFrom(value);
@@ -122,14 +130,22 @@ function Filter({ guitars, guitarTypes, guitarStrings }) {
                 className={styles.input}
                 onChange={(evt) => setPriceTo(evt.target.value)}
                 onBlur={(evt) => {
-                  const value = evt.target.value;
+                  const value = +evt.target.value;
+
+                  if (!value) {
+                    return setPriceTo('');
+                  }
+
+                  if (priceFrom && value <= +priceFrom) {
+                    return setPriceTo(priceFrom);
+                  }
+
+                  if (value <= minPrice) {
+                    return setPriceTo(minPrice);
+                  }
 
                   if (value >= maxPrice) {
                     return setPriceTo(maxPrice);
-                  }
-
-                  if (priceFrom && value <= priceFrom) {
-                    return setPriceTo(priceFrom);
                   }
 
                   setPriceTo(value);
