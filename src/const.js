@@ -30,3 +30,6 @@ export const GuitarsType = {
   ELECTRIC: 'Электрогитары',
   UKULELE: 'Укулеле',
 };
+
+export const MAX_GUITARS_ON_PAGE = 9;
+export const DEFAULT_PAGE = 1;

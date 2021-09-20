@@ -14,13 +14,8 @@ import {
   getSortingOrder,
   getSortingType,
 } from '../../../store/ui-slice/selectors';
-import {
-  DEFAULT_PAGE,
-  filterProducts,
-  MAX_GUITARS_ON_PAGE,
-  paginateProducts,
-  sortProducts,
-} from '../../../utils';
+import { filterProducts, paginateProducts, sortProducts } from '../../../utils';
+import { DEFAULT_PAGE, MAX_GUITARS_ON_PAGE } from '../../../const';
 
 function Catalog() {
   const guitars = useSelector(getGuitars);
@@ -58,7 +53,11 @@ function Catalog() {
     sortingOrder,
   );
 
-  const paginatedGuitars = paginateProducts(sortedGuitars, currentPage);
+  const paginatedGuitars = paginateProducts(
+    sortedGuitars,
+    currentPage,
+    MAX_GUITARS_ON_PAGE,
+  );
 
   return (
     <section className={styles.section}>

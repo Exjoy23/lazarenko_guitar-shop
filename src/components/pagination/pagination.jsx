@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './pagination.module.scss';
-import { DEFAULT_PAGE } from '../../utils';
+import { DEFAULT_PAGE } from '../../const';
 
 const MIN_PAGES_COUNT = 2;
 const PAGE_COUNT = 1;

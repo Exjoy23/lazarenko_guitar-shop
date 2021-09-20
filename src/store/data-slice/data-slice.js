@@ -4,6 +4,7 @@ import { DATABASE_URL } from '../../const';
 
 const initialState = {
   guitars: [],
+  isLoading: false,
 };
 
 export const loadGuitars = createAsyncThunk('data/loadGuitars', async () => {
@@ -19,8 +20,15 @@ const dataSlice = createSlice({
   name: 'dataSlice',
   initialState,
   extraReducers: {
+    [loadGuitars.pending]: (state) => {
+      state.isLoading = true;
+    },
     [loadGuitars.fulfilled]: (state, { payload }) => {
       state.guitars = payload;
+      state.isLoading = false;
+    },
+    [loadGuitars.rejected]: (state) => {
+      state.isLoading = false;
     },
   },
 });

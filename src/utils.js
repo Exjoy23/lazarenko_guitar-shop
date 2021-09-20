@@ -1,18 +1,10 @@
 import { GUITAR_STRINGS, GUITAR_TYPES, SortingOrders } from './const';
 
-export const MAX_GUITARS_ON_PAGE = 9;
-export const DEFAULT_PAGE = 1;
-
-export const paginateProducts = (products, page) => {
-  if (page === DEFAULT_PAGE) {
-    return products.slice(0, MAX_GUITARS_ON_PAGE);
-  }
-
-  return products.slice(
-    page * MAX_GUITARS_ON_PAGE - MAX_GUITARS_ON_PAGE,
-    page * MAX_GUITARS_ON_PAGE,
+export const paginateProducts = (products, page, maxProductsOnPage) =>
+  products.slice(
+    page * maxProductsOnPage - maxProductsOnPage,
+    page * maxProductsOnPage,
   );
-};
 
 export const divideNumberByPieces = (number) =>
   number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
