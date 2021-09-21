@@ -9,7 +9,7 @@ function BasketList({ guitars }) {
       {(guitars &&
         guitars.length &&
         guitars.map((item) => <BasketItem key={item.id} {...item} />)) || (
-        <div className={styles.text}>В корзине пока ничего нет &#128543;</div>
+        <li className={styles.text}>В корзине пока ничего нет &#128543;</li>
       )}
     </ul>
   );

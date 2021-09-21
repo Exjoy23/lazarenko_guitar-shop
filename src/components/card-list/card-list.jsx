@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import styles from './card-list.module.scss';
 import { getIsLoading } from '../../store/data-slice/selectors';
-import { MAX_GUITARS_ON_PAGE } from '../../const';
+import { CARDS } from '../../const';
 import { CardItem } from '../card-item/card-item';
 import { Loader } from '../loader/loader';
 import { Notification } from '../notification/notification';
@@ -14,11 +14,9 @@ function CardList({ guitars }) {
   if (isLoading) {
     return (
       <ul className={styles.list}>
-        {Array(MAX_GUITARS_ON_PAGE)
-          .fill('')
-          .map((_, index) => (
-            <Loader key={index} />
-          ))}
+        {CARDS.map((item) => (
+          <Loader key={item} />
+        ))}
       </ul>
     );
   }

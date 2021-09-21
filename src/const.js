@@ -47,3 +47,13 @@ export const GuitarTypes = {
   ELECTRIC: 'Электрогитара',
   UKULELE: 'Укулеле',
 };
+
+export const PromoCodes = {
+  GITARAHIT: 'GITARAHIT',
+  SUPERGITARA: 'SUPERGITARA',
+  GITARA2020: 'GITARA2020',
+};
+
+export const CARDS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+export const QUANTITY = 1;

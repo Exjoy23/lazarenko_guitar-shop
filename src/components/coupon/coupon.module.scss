@@ -20,7 +20,24 @@
   font-size: 12px;
 }
 
+.error {
+  position: absolute;
+  top: -15px;
+  left: 7px;
+
+  width: 200px;
+  margin: 0;
+
+  color: #f20505;
+
+  font-size: 12px;
+}
+
 .label {
+  position: relative;
+
+  display: inline-block;
+
   margin-right: 33px;
 }
 

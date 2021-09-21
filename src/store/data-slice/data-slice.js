@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { DATABASE_URL } from '../../const';
+import { DATABASE_URL, QUANTITY } from '../../const';
 
 const initialState = {
   guitars: [],
   cartGuitars: [],
   isLoading: false,
+  promoCode: '',
 };
 
 export const loadGuitars = createAsyncThunk('data/loadGuitars', async () => {
@@ -25,7 +26,7 @@ const dataSlice = createSlice({
       const guitar = state.cartGuitars.find((item) => item.id === payload.id);
 
       if (guitar) {
-        guitar.quantity = guitar.quantity + 1;
+        guitar.quantity = guitar.quantity + QUANTITY;
       } else {
         state.cartGuitars.push(payload);
       }
@@ -35,7 +36,15 @@ const dataSlice = createSlice({
         (item) => item.id === payload,
       );
 
-      state.cartGuitars.splice(guitarIndex, 1);
+      state.cartGuitars.splice(guitarIndex, QUANTITY);
+    },
+    changeQuantityGuitars(state, { payload }) {
+      const guitar = state.cartGuitars.find((item) => item.id === payload.id);
+
+      guitar.quantity = payload.count;
+    },
+    changePromoCode(state, { payload }) {
+      state.promoCode = payload;
     },
   },
   extraReducers: {
@@ -52,5 +61,10 @@ const dataSlice = createSlice({
   },
 });
 
-export const { addToCartGuitar, removeFromCartGuitar } = dataSlice.actions;
+export const {
+  addToCartGuitar,
+  removeFromCartGuitar,
+  changeQuantityGuitars,
+  changePromoCode,
+} = dataSlice.actions;
 export default dataSlice.reducer;

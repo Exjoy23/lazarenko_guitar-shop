@@ -7,21 +7,21 @@ import {
   changeFilteringPriceFrom,
   changeFilteringPriceTo,
   changeFilteringStrings,
-  changeFilteringTypes,
+  changeFilteringTypes
 } from '../../store/ui-slice/ui-slice';
 import {
   GUITAR_TYPES,
   GuitarsType,
   GUITAR_STRINGS,
   SortingTypes,
-  SortingOrders,
+  SortingOrders
 } from '../../const';
 import {
   divideNumberByPieces,
   filterByPrice,
   filterByStrings,
   filterByType,
-  sortProducts,
+  sortProducts
 } from '../../utils';
 
 function Filter({ guitars, guitarTypes, guitarStrings }) {

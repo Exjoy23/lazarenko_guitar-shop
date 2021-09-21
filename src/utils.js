@@ -1,4 +1,9 @@
-import { GUITAR_STRINGS, GUITAR_TYPES, SortingOrders } from './const';
+import {
+  GUITAR_STRINGS,
+  GUITAR_TYPES,
+  ProductKeys,
+  SortingOrders
+} from './const';
 
 export const paginateProducts = (products, page, maxProductsOnPage) =>
   products.slice(
@@ -55,7 +60,10 @@ export const getSumProducts = (products, key) => {
     return products
       .slice()
       .reduce(
-        (accumulator, currentValue) => accumulator + currentValue[key],
+        (accumulator, currentValue) =>
+          accumulator +
+          currentValue[key] *
+            (key === ProductKeys.PRICE ? currentValue.quantity : 1),
         initialValue,
       );
   }

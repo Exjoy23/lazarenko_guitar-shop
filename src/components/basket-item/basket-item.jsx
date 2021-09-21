@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { GuitarTypes, SCROLL_HIDE_STYLE } from '../../const';
 import { divideNumberByPieces, getNumber } from '../../utils';
 import styles from './basket-item.module.scss';
 import { Modal } from '../modal/modal';
+import { changeQuantityGuitars } from '../../store/data-slice/data-slice';
 
 const MIN_VALUE = 1;
 const STEP = 1;
 
 function BasketItem({ id, type, strings, name, cartPreview, price, quantity }) {
+  const dispatch = useDispatch();
   const [count, setCount] = useState(quantity);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    dispatch(changeQuantityGuitars({ id, count }));
+  }, [dispatch, count, id]);
 
   const onInputChange = (evt) => {
     const value = getNumber(evt.target.value);
@@ -26,6 +33,9 @@ function BasketItem({ id, type, strings, name, cartPreview, price, quantity }) {
   const reduceValue = () => {
     setCount((state) => {
       if (state === MIN_VALUE) {
+        setIsModalOpen(true);
+        document.body.style = SCROLL_HIDE_STYLE;
+
         return state;
       }
 

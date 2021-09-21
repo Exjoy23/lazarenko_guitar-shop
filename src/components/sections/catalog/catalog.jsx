@@ -12,7 +12,7 @@ import {
   getFilteringStrings,
   getFilteringTypes,
   getSortingOrder,
-  getSortingType,
+  getSortingType
 } from '../../../store/ui-slice/selectors';
 import { filterProducts, paginateProducts, sortProducts } from '../../../utils';
 import { DEFAULT_PAGE, MAX_GUITARS_ON_PAGE } from '../../../const';

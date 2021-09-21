@@ -7,12 +7,12 @@ import { Button } from '../button/button';
 import { useDispatch } from 'react-redux';
 import {
   addToCartGuitar,
-  removeFromCartGuitar,
+  removeFromCartGuitar
 } from '../../store/data-slice/data-slice';
 import {
   GuitarTypes,
   SCROLL_HIDE_STYLE,
-  SCROLL_VISIBLE_STYLE,
+  SCROLL_VISIBLE_STYLE
 } from '../../const';
 
 function Modal({
