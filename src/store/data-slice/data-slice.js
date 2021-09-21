@@ -22,7 +22,20 @@ const dataSlice = createSlice({
   initialState,
   reducers: {
     addToCartGuitar(state, { payload }) {
-      state.cartGuitars.push(payload);
+      const guitar = state.cartGuitars.find((item) => item.id === payload.id);
+
+      if (guitar) {
+        guitar.quantity = guitar.quantity + 1;
+      } else {
+        state.cartGuitars.push(payload);
+      }
+    },
+    removeFromCartGuitar(state, { payload }) {
+      const guitarIndex = state.cartGuitars.findIndex(
+        (item) => item.id === payload,
+      );
+
+      state.cartGuitars.splice(guitarIndex, 1);
     },
   },
   extraReducers: {
@@ -39,5 +52,5 @@ const dataSlice = createSlice({
   },
 });
 
-export const { addToCartGuitar } = dataSlice.actions;
+export const { addToCartGuitar, removeFromCartGuitar } = dataSlice.actions;
 export default dataSlice.reducer;

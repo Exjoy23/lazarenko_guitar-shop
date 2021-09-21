@@ -1,15 +1,20 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 import styles from './header.module.scss';
-import { AppRoute } from '../../const';
+import { AppRoute, ProductKeys } from '../../const';
 import { Logo } from '../logo/logo';
 import { Link } from 'react-router-dom';
+import { getCartGuitars } from '../../store/data-slice/selectors';
+import { getSumProducts } from '../../utils';
 import location from './location.svg';
 import search from './search.svg';
 import cart from './cart.svg';
 import guitar from './guitar.png';
 
 function Header() {
+  const cartGuitars = useSelector(getCartGuitars);
+
   return (
     <header>
       <div className={styles.wrapper}>
@@ -67,16 +72,22 @@ function Header() {
               </li>
               <li>
                 <Link
-                  className={classNames(styles.link, styles.link_icon)}
+                  className={classNames(
+                    styles.link,
+                    styles.link_icon,
+                    styles.link_cart,
+                  )}
                   to={AppRoute.CART}
                 >
                   <img
-                    className={styles.cart}
                     src={cart}
-                    width="20"
+                    width="15"
                     height="20"
                     alt="Корзина товаров"
                   />
+                  <span className={styles.badge}>
+                    {getSumProducts(cartGuitars, ProductKeys.QUANTITY)}
+                  </span>
                 </Link>
               </li>
             </ul>

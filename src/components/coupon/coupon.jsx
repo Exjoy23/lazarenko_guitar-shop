@@ -12,7 +12,6 @@ function Coupon() {
           className={styles.input}
           type="text"
           aria-label="Поле ввода промокода"
-          value="GITARAHIT"
         />
       </label>
       <Button className={styles.button}>Применить купон</Button>

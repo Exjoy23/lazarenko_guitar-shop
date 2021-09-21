@@ -5,14 +5,15 @@ import styles from './modal.module.scss';
 import { divideNumberByPieces } from '../../utils';
 import { Button } from '../button/button';
 import { useDispatch } from 'react-redux';
-import { addToCartGuitar } from '../../store/data-slice/data-slice';
-import { SCROLL_HIDE_STYLE, SCROLL_VISIBLE_STYLE } from '../../const';
-
-const GuitarTypes = {
-  ACOUSTIC: 'Акустическая гитара',
-  ELECTRIC: 'Электрогитара',
-  UKULELE: 'Укулеле',
-};
+import {
+  addToCartGuitar,
+  removeFromCartGuitar,
+} from '../../store/data-slice/data-slice';
+import {
+  GuitarTypes,
+  SCROLL_HIDE_STYLE,
+  SCROLL_VISIBLE_STYLE,
+} from '../../const';
 
 function Modal({
   isOpen,
@@ -24,6 +25,7 @@ function Modal({
   strings,
   price,
   cartPreview,
+  secondary,
 }) {
   const dispatch = useDispatch();
 
@@ -32,7 +34,7 @@ function Modal({
     onClose(false);
   };
 
-  const onButtonClick = () => {
+  const onButtonAddClick = () => {
     dispatch(
       addToCartGuitar({
         name,
@@ -49,6 +51,11 @@ function Modal({
 
     onSetPopupOpen(true);
     onClose(false);
+  };
+
+  const onButtonRemoveClick = () => {
+    dispatch(removeFromCartGuitar(id));
+    document.body.style = SCROLL_VISIBLE_STYLE;
   };
 
   return (
@@ -68,7 +75,9 @@ function Modal({
       ariaHideApp={false}
     >
       <div className={styles.heading}>
-        <p className={styles.action}>Добавить товар в корзину</p>
+        <p className={styles.action}>
+          {secondary ? 'Удалить этот товар? ' : 'Добавить товар в корзину'}
+        </p>
         <button className={styles.close} onClick={onModalClose} type="button" />
       </div>
       <div className={styles.inner}>
@@ -81,9 +90,34 @@ function Modal({
           </p>
           <p className={styles.price}>Цена: {divideNumberByPieces(price)} ₽</p>
         </div>
-        <Button className={styles.button} onClick={onButtonClick} primary>
-          Добавить в корзину
-        </Button>
+        <div>
+          {secondary ? (
+            <>
+              <Button
+                className={styles.button}
+                onClick={onButtonRemoveClick}
+                primary
+              >
+                Удалить товар
+              </Button>
+              <Button
+                className={styles.button}
+                onClick={onModalClose}
+                secondary
+              >
+                Продолжить покупки
+              </Button>
+            </>
+          ) : (
+            <Button
+              className={styles.button}
+              onClick={onButtonAddClick}
+              primary
+            >
+              Добавить в корзину
+            </Button>
+          )}
+        </div>
       </div>
     </ReactModal>
   );
@@ -98,7 +132,8 @@ Modal.propTypes = {
   price: PropTypes.number.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  onSetPopupOpen: PropTypes.func.isRequired,
+  onSetPopupOpen: PropTypes.func,
+  secondary: PropTypes.bool,
 };
 
 export { Modal };

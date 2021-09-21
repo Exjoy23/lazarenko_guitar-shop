@@ -36,3 +36,14 @@ export const DEFAULT_PAGE = 1;
 
 export const SCROLL_HIDE_STYLE = 'overflow: hidden';
 export const SCROLL_VISIBLE_STYLE = 'overflow: visible';
+
+export const ProductKeys = {
+  QUANTITY: 'quantity',
+  PRICE: 'price',
+};
+
+export const GuitarTypes = {
+  ACOUSTIC: 'Акустическая гитара',
+  ELECTRIC: 'Электрогитара',
+  UKULELE: 'Укулеле',
+};

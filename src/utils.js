@@ -47,3 +47,18 @@ export const sortProducts = (products, type, order) => {
       order === SortingOrders.ASCENDING ? a[type] - b[type] : b[type] - a[type],
     );
 };
+
+export const getSumProducts = (products, key) => {
+  if (products.length) {
+    const initialValue = 0;
+
+    return products
+      .slice()
+      .reduce(
+        (accumulator, currentValue) => accumulator + currentValue[key],
+        initialValue,
+      );
+  }
+};
+
+export const getNumber = (value) => +value.toString().replace(/[^\d]/g, '');

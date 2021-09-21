@@ -38,6 +38,13 @@
     &:active {
       background-color: var(--dark-orange);
     }
+
+    &:disabled {
+      cursor: default;
+
+      opacity: 0.7;
+      background-color: var(--orange);
+    }
   }
 
   &_secondary {
