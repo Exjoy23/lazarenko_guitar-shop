@@ -89,17 +89,19 @@ function BasketItem({ id, type, strings, name, cartPreview, price, quantity }) {
       <div className={classNames(styles.price, styles.price_all)}>
         {divideNumberByPieces(price * count)} ₽
       </div>
-      <Modal
-        isOpen={isModalOpen}
-        onClose={setIsModalOpen}
-        id={id}
-        strings={strings}
-        type={type}
-        name={name}
-        cartPreview={cartPreview}
-        price={price}
-        secondary
-      />
+      {isModalOpen && (
+        <Modal
+          isOpen={isModalOpen}
+          onClose={setIsModalOpen}
+          id={id}
+          strings={strings}
+          type={type}
+          name={name}
+          cartPreview={cartPreview}
+          price={price}
+          secondary
+        />
+      )}
     </li>
   );
 }

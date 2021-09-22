@@ -56,18 +56,20 @@ function CardItem({
           Купить
         </Button>
       </div>
-      <Modal
-        isOpen={isModalOpen}
-        onClose={setIsModalOpen}
-        onSetPopupOpen={setIsPopupOpen}
-        name={name}
-        id={id}
-        type={type}
-        strings={strings}
-        price={price}
-        cartPreview={cartPreview}
-      />
-      <Popup isOpen={isPopupOpen} onClose={setIsPopupOpen} />
+      {isModalOpen && (
+        <Modal
+          isOpen={isModalOpen}
+          onClose={setIsModalOpen}
+          onSetPopupOpen={setIsPopupOpen}
+          name={name}
+          id={id}
+          type={type}
+          strings={strings}
+          price={price}
+          cartPreview={cartPreview}
+        />
+      )}
+      {isPopupOpen && <Popup isOpen={isPopupOpen} onClose={setIsPopupOpen} />}
     </li>
   );
 }
