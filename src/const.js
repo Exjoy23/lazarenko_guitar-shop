@@ -1,6 +1,15 @@
 export const AppRoute = {
   MAIN: '/',
+  CATALOG: '/catalog',
+  BUE: '/bue',
+  ABOUT: '/about',
+  SERVICE: '/service',
+  LOCATION: '/location',
+  SEARCH: '/search',
   CART: '/cart',
+  RETURN: '/return',
+  BLOG: '/blog',
+  FAQ: '/faq',
 };
 
 export const DATABASE_URL =

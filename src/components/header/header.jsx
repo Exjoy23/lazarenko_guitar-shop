@@ -23,22 +23,22 @@ function Header() {
           <nav className={styles.nav}>
             <ul className={styles.list}>
               <li className={styles.item}>
-                <Link className={styles.link} to={AppRoute.MAIN}>
+                <Link className={styles.link} to={AppRoute.CATALOG}>
                   Каталог
                 </Link>
               </li>
               <li className={styles.item}>
-                <Link className={styles.link} to="/">
+                <Link className={styles.link} to={AppRoute.BUE}>
                   Где купить?
                 </Link>
               </li>
               <li className={styles.item}>
-                <Link className={styles.link} to="/">
+                <Link className={styles.link} to={AppRoute.ABOUT}>
                   О компании
                 </Link>
               </li>
               <li className={styles.item}>
-                <Link className={styles.link} to="/">
+                <Link className={styles.link} to={AppRoute.SERVICE}>
                   Сервис-центры
                 </Link>
               </li>
@@ -47,7 +47,7 @@ function Header() {
               <li>
                 <Link
                   className={classNames(styles.link, styles.link_icon)}
-                  to="/"
+                  to={AppRoute.LOCATION}
                 >
                   <img
                     src={location}
@@ -60,7 +60,7 @@ function Header() {
               <li>
                 <Link
                   className={classNames(styles.link, styles.link_icon)}
-                  to="/"
+                  to={AppRoute.SEARCH}
                 >
                   <img
                     src={search}

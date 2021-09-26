@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from './footer.module.scss';
+import { AppRoute } from '../../const';
 import { Logo } from '../logo/logo';
 import facebook from './facebook.svg';
 import instagram from './instagram.svg';
@@ -76,27 +77,27 @@ function Footer() {
             <h2 className={styles.title}>Информация</h2>
             <ul className={styles.list}>
               <li className={styles.item}>
-                <Link className={styles.link} to="/">
+                <Link className={styles.link} to={AppRoute.BUE}>
                   Где купить?
                 </Link>
               </li>
               <li className={styles.item}>
-                <Link className={styles.link} to="/">
+                <Link className={styles.link} to={AppRoute.BLOG}>
                   Блог
                 </Link>
               </li>
               <li className={styles.item}>
-                <Link className={styles.link} to="/">
+                <Link className={styles.link} to={AppRoute.FAQ}>
                   Вопрос - ответ
                 </Link>
               </li>
               <li className={styles.item}>
-                <Link className={styles.link} to="/">
+                <Link className={styles.link} to={AppRoute.RETURN}>
                   Возврат
                 </Link>
               </li>
               <li className={styles.item}>
-                <Link className={styles.link} to="/">
+                <Link className={styles.link} to={AppRoute.SERVICE}>
                   Сервис-центры
                 </Link>
               </li>

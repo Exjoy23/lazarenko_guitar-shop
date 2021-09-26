@@ -9,6 +9,7 @@ function App() {
   return (
     <Switch>
       <Route exact path={AppRoute.MAIN} component={MainPage} />
+      <Route exact path={AppRoute.CATALOG} component={MainPage} />
       <Route exact path={AppRoute.CART} component={CartPage} />
     </Switch>
   );
