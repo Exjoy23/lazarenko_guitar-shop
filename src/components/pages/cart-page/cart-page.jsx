@@ -6,7 +6,11 @@ import { Breadcrumbs } from '../../breadcrumbs/breadcrumbs';
 import { Footer } from '../../footer/footer';
 import { Cart } from '../../sections/cart/cart';
 
-const BREADCRUMBS = ['Главная', 'Каталог', 'Оформляем'];
+const BREADCRUMBS = [
+  { name: 'Главная', path: '/' },
+  { name: 'Каталог', path: '/catalog' },
+  { name: 'Оформляем', path: '' },
+];
 
 function CartPage() {
   return (

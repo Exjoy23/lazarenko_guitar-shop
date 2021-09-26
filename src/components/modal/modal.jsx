@@ -7,12 +7,12 @@ import { Button } from '../button/button';
 import { useDispatch } from 'react-redux';
 import {
   addToCartGuitar,
-  removeFromCartGuitar
+  removeFromCartGuitar,
 } from '../../store/data-slice/data-slice';
 import {
   GuitarTypes,
   SCROLL_HIDE_STYLE,
-  SCROLL_VISIBLE_STYLE
+  SCROLL_VISIBLE_STYLE,
 } from '../../const';
 
 function Modal({
@@ -78,7 +78,12 @@ function Modal({
         <p className={styles.action}>
           {secondary ? 'Удалить этот товар? ' : 'Добавить товар в корзину'}
         </p>
-        <button className={styles.close} onClick={onModalClose} type="button" />
+        <button
+          className={styles.close}
+          onClick={onModalClose}
+          type="button"
+          aria-label="закрыть окно"
+        />
       </div>
       <div className={styles.inner}>
         <img src={cartPreview} width="48" height="124" alt={name} />

@@ -1,0 +1,26 @@
+.wrapper {
+  display: grid;
+
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  margin-top: -46px;
+  margin-bottom: 53px;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 21px;
+}
+
+.breadcrumbs {
+  margin: 0;
+  margin-bottom: 50px;
+}

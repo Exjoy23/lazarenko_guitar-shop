@@ -29,7 +29,12 @@ function Popup({ isOpen, onClose }) {
     >
       <div className={styles.heading}>
         <p className={styles.action}>Товар успешно добавлен в корзину</p>
-        <button className={styles.close} onClick={onModalClose} type="button" />
+        <button
+          className={styles.close}
+          onClick={onModalClose}
+          type="button"
+          aria-label="закрыть окно"
+        />
       </div>
       <div className={styles.inner}>
         <Button
