@@ -17,17 +17,27 @@ function BasketItem({ id, type, strings, name, cartPreview, price, quantity }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    dispatch(changeQuantityGuitars({ id, count }));
+    if (count) {
+      dispatch(changeQuantityGuitars({ id, count }));
+    }
   }, [dispatch, count, id]);
 
   const onInputChange = (evt) => {
     const value = getNumber(evt.target.value);
 
-    if (value < MIN_VALUE) {
-      return setCount(MIN_VALUE);
+    if (!value) {
+      return setCount('');
     }
 
     setCount(value);
+  };
+
+  const onInputBlur = (evt) => {
+    const value = getNumber(evt.target.value);
+
+    if (value < MIN_VALUE) {
+      return setCount(MIN_VALUE);
+    }
   };
 
   const reduceValue = () => {
@@ -78,6 +88,7 @@ function BasketItem({ id, type, strings, name, cartPreview, price, quantity }) {
           type="text"
           value={count}
           onChange={onInputChange}
+          onBlur={onInputBlur}
         />
         <button
           className={styles.increment}
@@ -87,7 +98,7 @@ function BasketItem({ id, type, strings, name, cartPreview, price, quantity }) {
         />
       </div>
       <div className={classNames(styles.price, styles.price_all)}>
-        {divideNumberByPieces(price * count)} ₽
+        {divideNumberByPieces(price * (count ? count : MIN_VALUE))} ₽
       </div>
       {isModalOpen && (
         <Modal

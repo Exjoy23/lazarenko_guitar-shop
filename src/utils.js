@@ -70,3 +70,13 @@ export const getSumProducts = (products, key) => {
 };
 
 export const getNumber = (value) => +value.toString().replace(/[^\d]/g, '');
+
+export const changeValue = (evt, cb) => {
+  const value = evt.target.value;
+
+  if (!value || !getNumber(value)) {
+    return cb('');
+  }
+
+  cb(getNumber(value));
+};

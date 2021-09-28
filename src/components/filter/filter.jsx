@@ -17,6 +17,7 @@ import {
   SortingOrders
 } from '../../const';
 import {
+  changeValue,
   divideNumberByPieces,
   filterByPrice,
   filterByStrings,
@@ -86,6 +87,54 @@ function Filter({ guitars, guitarTypes, guitarStrings }) {
     dispatch(changeFilteringStrings(filteringStrings));
   }, [dispatch, strings]);
 
+  const onPriceFromChange = (evt) => changeValue(evt, setPriceFrom);
+
+  const onPriceToChange = (evt) => changeValue(evt, setPriceTo);
+
+  const onPriceFromBlur = (evt) => {
+    const value = +evt.target.value;
+
+    if (!value) {
+      return setPriceFrom('');
+    }
+
+    if (priceTo && value >= priceTo) {
+      return setPriceFrom(priceTo);
+    }
+
+    if (value <= minPrice) {
+      return setPriceFrom(minPrice);
+    }
+
+    if (value >= maxPrice) {
+      return setPriceFrom(maxPrice);
+    }
+
+    setPriceFrom(value);
+  };
+
+  const onPriceToBlur = (evt) => {
+    const value = +evt.target.value;
+
+    if (!value) {
+      return setPriceTo('');
+    }
+
+    if (priceFrom && value <= priceFrom) {
+      return setPriceTo(priceFrom);
+    }
+
+    if (value <= minPrice) {
+      return setPriceTo(minPrice);
+    }
+
+    if (value >= maxPrice) {
+      return setPriceTo(maxPrice);
+    }
+
+    setPriceTo(value);
+  };
+
   return (
     <section className={styles.wrapper}>
       <h2 className={styles.title}>Фильтр</h2>
@@ -96,65 +145,23 @@ function Filter({ guitars, guitarTypes, guitarStrings }) {
             <label>
               <input
                 className={styles.input}
-                onChange={(evt) => setPriceFrom(evt.target.value)}
-                onBlur={(evt) => {
-                  const value = +evt.target.value;
-
-                  if (!value) {
-                    return setPriceFrom('');
-                  }
-
-                  if (priceTo && value >= +priceTo) {
-                    return setPriceFrom(priceTo);
-                  }
-
-                  if (value <= minPrice) {
-                    return setPriceFrom(minPrice);
-                  }
-
-                  if (value >= maxPrice) {
-                    return setPriceFrom(maxPrice);
-                  }
-
-                  setPriceFrom(value);
-                }}
+                onChange={onPriceFromChange}
+                onBlur={onPriceFromBlur}
                 value={priceFrom}
-                type="number"
+                type="text"
                 placeholder={minPrice && divideNumberByPieces(minPrice)}
                 aria-label="Цена от"
-                min="0"
               />
             </label>
             <label>
               <input
                 className={styles.input}
-                onChange={(evt) => setPriceTo(evt.target.value)}
-                onBlur={(evt) => {
-                  const value = +evt.target.value;
-
-                  if (!value) {
-                    return setPriceTo('');
-                  }
-
-                  if (priceFrom && value <= +priceFrom) {
-                    return setPriceTo(priceFrom);
-                  }
-
-                  if (value <= minPrice) {
-                    return setPriceTo(minPrice);
-                  }
-
-                  if (value >= maxPrice) {
-                    return setPriceTo(maxPrice);
-                  }
-
-                  setPriceTo(value);
-                }}
+                onChange={onPriceToChange}
+                onBlur={onPriceToBlur}
                 value={priceTo}
-                type="number"
+                type="text"
                 placeholder={maxPrice && divideNumberByPieces(maxPrice)}
                 aria-label="Цена до"
-                min="0"
               />
             </label>
           </div>
