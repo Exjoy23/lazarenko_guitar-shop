@@ -28,10 +28,12 @@
 
 .inner {
   display: grid;
-  grid-template-columns: 226px 145px 146px 223px 133px;
+  grid-template-columns: 226px 145px 146px auto 133px;
   column-gap: 15px;
 
-  width: 1020px;
+  width: 100%;
+  min-width: 1000px;
+  max-width: 1020px;
   padding-top: 61px;
   padding-right: 40px;
   padding-bottom: 50px;
